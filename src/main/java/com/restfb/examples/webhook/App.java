@@ -3,6 +3,7 @@ package com.restfb.examples.webhook;
 import com.restfb.examples.webhook.bots.EchoBotServlet;
 import com.restfb.examples.webhook.bots.LogBotServlet;
 
+import com.restfb.examples.webhook.bots.SepaBotServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -23,6 +24,8 @@ public class App {
     echoServlet.setInitOrder(0);
     ServletHolder logServlet = context.addServlet(LogBotServlet.class, "/log");
     logServlet.setInitOrder(1);
+    ServletHolder sepaServlet = context.addServlet(SepaBotServlet.class, "/sepa");
+    sepaServlet.setInitOrder(2);
 
     try {
       jettyServer.start();

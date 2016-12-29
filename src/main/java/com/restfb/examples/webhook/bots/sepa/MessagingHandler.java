@@ -33,6 +33,7 @@ public class MessagingHandler {
             if (PostbackPayloads.REQUEST_NEW_TRANSACTION.equals(item.getPostback().getPayload())) {
                 sendNewTransaction(recipient);
                 userStateMap.put(senderId, UserState.NEW_TRANSACTION_STARTED);
+                return;
             }
             if (PostbackPayloads.REQUEST_VIEW_DEPOT.equals(item.getPostback().getPayload())) {
                 sendNotSupported(recipient, userFirstName);
